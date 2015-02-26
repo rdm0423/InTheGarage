@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CarController.h"
 
-@interface ViewController : UIViewController
+@interface DetailViewController : UIViewController
+
+@property (nonatomic, strong) Car *car;
+
+- (void)updateWithCar:(Car *)car;
 
 
 @end
