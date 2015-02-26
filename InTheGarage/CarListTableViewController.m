@@ -34,14 +34,15 @@
 #pragma mark - Segue Prep
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    UITableViewCell *cell = sender;
-    
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    
-    CarDetailViewController *viewController = segue.destinationViewController;
-    
-    viewController.car = [[CarController sharedInstance].cars objectAtIndex:indexPath.row];
+    if ([segue.identifier isEqualToString:@"cellTapped"]) {
+        UITableViewCell *cell = sender;
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        
+        CarDetailViewController *viewController = segue.destinationViewController;
+        
+        viewController.car = [[CarController sharedInstance].cars objectAtIndex:indexPath.row];
+    }
 }
 
 #pragma mark - Table view data source
